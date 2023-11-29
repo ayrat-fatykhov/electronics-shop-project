@@ -29,3 +29,13 @@ def test_instantiate_from_csv():
 
 def test_string_to_number():
     assert Item.string_to_number('3') == 3
+
+
+def test_item_magic_pepr():
+    item = Item("Видеокарта", 30000, 3)
+    assert repr(item) == "Item('Видеокарта', 30000, 3)"
+
+
+def test_item_magic_str():
+    item = Item("Видеокарта", 30000, 3)
+    assert str(item) == "Видеокарта"
