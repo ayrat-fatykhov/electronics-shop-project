@@ -39,3 +39,8 @@ def test_item_magic_pepr():
 def test_item_magic_str():
     item = Item("Видеокарта", 30000, 3)
     assert str(item) == "Видеокарта"
+
+
+def test_add():
+    item = Item("Роутер TP-Link", 5000, 25)
+    assert item + item == 50
