@@ -29,6 +29,11 @@ class Item:
         """Показывет данные для пользователя"""
         return self.__name
 
+    def __add__(self, other):
+        if isinstance(other, self.__class__):
+            return self.quantity + other.quantity
+        return None
+
     def calculate_total_price(self) -> float:
         """
         Рассчитывает общую стоимость конкретного товара в магазине.
