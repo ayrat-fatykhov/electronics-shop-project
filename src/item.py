@@ -30,6 +30,7 @@ class Item:
         return self.__name
 
     def __add__(self, other):
+        """Складывает экземпляры класса по количеству товара в магазине"""
         if isinstance(other, self.__class__):
             return self.quantity + other.quantity
         return None
