@@ -21,6 +21,6 @@ class Phone(Item):
     @sim_quantity.setter
     def sim_quantity(self, number):
         """Вносит условие на количество сим-карт"""
-        if number <= 0:
+        if number <= 0 or type(number) == float:
             raise ValueError("Количество физических SIM-карт должно быть целым числом больше нуля")
         self._sim_quantity = number
