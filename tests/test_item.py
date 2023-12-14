@@ -1,5 +1,9 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
-from settings import ITEMS_PATH
+import csv
+
+import pytest
+
+from settings import ITEMS_PATH, ITEMS_NOT_COLON_PATH, ITEMS_NO_FILE_PATH
 from src.item import Item
 
 
@@ -44,3 +48,13 @@ def test_item_magic_str():
 def test_add():
     item = Item("Роутер TP-Link", 5000, 25)
     assert item + item == 50
+
+
+def test_instantiate_csv_error():
+    assert Item.instantiate_from_csv(ITEMS_NOT_COLON_PATH) == 'Файл item.csv поврежден'
+
+
+def test_instantiate_from_csv_error():
+    with pytest.raises(FileNotFoundError):
+        with open(ITEMS_NO_FILE_PATH, encoding="windows-1251") as csvfile:
+            item = csv.DictReader(csvfile)
